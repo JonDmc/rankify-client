@@ -4,7 +4,7 @@ import axios from "axios"
 
 export default function Search({ spotifyToken, setSpotifyToken, setDifficulty, difficulty }) {
     // spotify auth details
-    const REDIRECT_URI = "http://localhost:3000/search"
+    const REDIRECT_URI = "https://flourishing-stroopwafel-14214c.netlify.app/search"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
 
@@ -51,11 +51,11 @@ export default function Search({ spotifyToken, setSpotifyToken, setDifficulty, d
 
     const renderedArtists = artists.map((artist, idx) => {
         return (
-                <div key={`artist index: ${idx}`} className="grid-item" onClick={() => handleArtistClick(artist.id, artist.name)}>
-                    {artist.images.length ? <img className={`img-container ${selected && artist.id === artistId ? 'image-select' : ''}`} src={artist.images[0].url} alt="" /> : <div>No Image</div>}
-                    <br />
-                    {artist.name}
-                </div>
+            <div key={`artist index: ${idx}`} className="grid-item" onClick={() => handleArtistClick(artist.id, artist.name)}>
+                {artist.images.length ? <img className={`img-container ${selected && artist.id === artistId ? 'image-select' : ''}`} src={artist.images[0].url} alt="" /> : <div>No Image</div>}
+                <br />
+                {artist.name}
+            </div>
         )
     })
 
